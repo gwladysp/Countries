@@ -13,6 +13,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package.json" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -28,9 +29,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.19.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.19.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gwlad\Dev\Challenge\Countries" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -46,7 +55,11 @@
       <workItem from="1604315906293" duration="18118000" />
       <workItem from="1604339500680" duration="8195000" />
       <workItem from="1604353132834" duration="795000" />
-      <workItem from="1604357116685" duration="485000" />
+      <workItem from="1604357116685" duration="936000" />
+      <workItem from="1604415128977" duration="2362000" />
+      <workItem from="1604418841612" duration="1497000" />
+      <workItem from="1604420367534" duration="1881000" />
+      <workItem from="1604422579673" duration="4925000" />
     </task>
     <servers />
   </component>
@@ -58,13 +71,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1440.87.1440.860@0.0.1920.1040" timestamp="1604331969751" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1604329780033">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1604416692342">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/-1440.87.1440.860@0.0.1920.1040" timestamp="1604329780033" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1440.87.1440.860@0.0.1920.1040" timestamp="1604416692342" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1604416699480">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/-1440.87.1440.860@0.0.1920.1040" timestamp="1604416699480" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1604346682695">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1440.87.1440.860@0.0.1920.1040" timestamp="1604346682695" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604419227075">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1440.87.1440.860@0.0.1920.1040" timestamp="1604419227075" />
   </component>
 </project>

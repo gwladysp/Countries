@@ -1,0 +1,16 @@
+{
+  "name": "Countries",
+  "version": "1.0.0",
+  "dependencies": {
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8.1.4",
+    "postcss-cli": "^8.2.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^1.9.6",
+    "tailwindcss-dark-mode": "^1.1.7"
+  },
+  "scripts": {
+    "build": "postcss css/tailwind.css -o public/build/tailwind.css"
+  }
+}
