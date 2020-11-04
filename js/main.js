@@ -59,10 +59,10 @@ function createCountryCard(content) {
         content.region = "undefined"
     }
 
-    let div = "            <div class='country bg-blue-200 mt-8 cursor-pointer' style='width: 300px' data-region=" + content.region.toLowerCase() + " data-name=" + content.name + "\">" +
-        "                <img class='w-full' src='" + content.flag + "' alt=''>" +
-        "                <div class='p-6'>" +
-        "                    <h2 class='text-center font-bold mb-4'>" + content.name + "</h2>" +
+    let div = "            <div class='country bg-white dark:bg-blue-800 shadow-xl mt-8 cursor-pointer rounded-md' style='width: 300px' data-region=" + content.region.toLowerCase() + " data-name=" + content.name + "\">" +
+        "                <img class='w-full rounded-t-md' src='" + content.flag + "' alt=''>" +
+        "                <div class='p-6 dark:text-blue-100'>" +
+        "                    <h2 class='text-center font-bold text-xl mb-4'>" + content.name + "</h2>" +
         "                    <p>Population : " + content.population + "</p>" +
         "                    <p>Region : " + content.region + "</p>" +
         "                    <p>Capital : " + content.capital + "</p>" +
@@ -81,29 +81,33 @@ function createCountryInfo(country, countries) {
     for (let i = 0; i < country.borders.length; i++) {
         for (let j = 0; j < countries.length; j++) {
             if (countries[j].alpha3Code === country.borders[i]) {
-                countryBorders = countryBorders + "<span class='bg-blue-700 py-2 px-6 mx-3  cursor-pointer text-white' data-countryBorders=" + countries[j].name + ">" + countries[j].name + "</span>"
+                countryBorders = countryBorders + "<span class='bg-gray-300 dark:bg-blue-700 py-2 px-6 mx-3  cursor-pointer text-gray-800 dark:text-white' data-countryBorders=" + countries[j].name + ">" + countries[j].name + "</span>"
                 break;
             }
         }
     }
 
-    let div = "<div class=' flex items-center'>" +
-        "<img class='w-1/2' src='" + country.flag + "' alt=\"\">\n" +
-        "                <div class=' pl-8 text-white'>\n" +
-        "                    <h1 class='text-2xl font-semibold'>" + country.name + "</h1>\n" +
+    let div = "<div class='flex items-center mx-auto'>" +
+        "<img class='w-2/5' src='" + country.flag + "' alt=\"\">\n" +
+        "                <div class=' pl-8 text-blue-900 dark:text-blue-200 w-1/2'>\n" +
+        "                    <h1 class='text-2xl font-semibold mb-8'>" + country.name + "</h1>\n" +
+        "                    <div class='flex justify-between leading-8'>\n" +
+        "                    <div class='mr-12'>\n" +
+        "                        <p><span class='font-bold'>Native name :</span> " + country.name + "</p>\n" +
+        "                        <p><span class='font-bold'>Population :</span> " + country.population + "</p>\n" +
+        "                        <p><span class='font-bold'>Region :</span> " + country.region + "</p>\n" +
+        "                        <p><span class='font-bold'>Sub Region :</span> " + country.subregion + "</p>\n" +
+        "                        <p><span class='font-bold'>Capital :</span> " + country.capital + "</p>\n" +
+        "                    </div>\n" +
         "                    <div>\n" +
-        "                        <p>Native name : " + country.name + "</p>\n" +
-        "                        <p>Population : " + country.population + "</p>\n" +
-        "                        <p>Region : " + country.region + "</p>\n" +
-        "                        <p>Sub Region : " + country.subregion + "</p>\n" +
-        "                        <p>Capital : " + country.capital + "</p>\n" +
-        "                        <p>Top Level Domain : " + country.name + "</p>\n" +
-        "                        <p>Currencies : " + country.name + "</p>\n" +
-        "                        <p>Languages : " + countryLanguage + "</p>\n" +
+        "                        <p><span class='font-bold'>Top Level Domain :</span> " + country.name + "</p>\n" +
+        "                        <p><span class='font-bold'>Currencies :</span> " + country.name + "</p>\n" +
+        "                        <p><span class='font-bold'>Languages :</span> " + countryLanguage + "</p>\n" +
+        "                    </div>\n" +
         "                    </div>\n" +
         "                </div>" +
         " </div>" +
-        "                    <div class='mt-12  text-white'>Border countries : " + countryBorders + "</div>\n"
+        "                    <div class='mt-12 text-blue-900 dark:text-blue-200'><span class='font-bold'>Border countries :</span> " + countryBorders + "</div>\n"
 
         document.querySelector(".country-info").insertAdjacentHTML('beforeend', div)
 

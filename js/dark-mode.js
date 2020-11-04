@@ -1,14 +1,9 @@
-function checkDarkMode() {
-    if (
-        window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-    ) {
-        return true
+const body = document.querySelector('html')
+
+document.querySelector("#theme-switcher").addEventListener('click', function() {
+    if (document.querySelector("#theme-switcher").checked) {
+        body.classList.add('mode-dark')
+    } else {
+        body.classList.remove('mode-dark')
     }
-    return false
-}
-if (checkDarkMode()) {
-    document.documentElement.classList.add('mode-dark')
-} else {
-    document.documentElement.classList.remove('mode-dark')
-}
+})

@@ -1,5 +1,5 @@
 <!DOCTYPE html >
-<html lang="en" class="dark-mode">
+<html lang="en" class="mode-dark">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,24 +10,39 @@
     <script src="js/search.js" defer></script>
     <script src="js/dark-mode.js" defer></script>
 </head>
-<body class="bg-blue-900 dark:bg-green-900">
-<nav class="h-20 bg-blue-800">
-    <div class="container mx-auto">
-        <span data-mode="light"></span>
+<style>
+    .theme-switcher-input:checked {
+        @apply: right-0 border-blue-800;
+        right: 0;
+        border-color: #2a4365;
+    }
+    .theme-switcher-input:checked + .theme-switcher-label {
+        @apply: bg-blue-800;
+        background-color: #2a4365;
+    }
+</style>
+<body class="dark:bg-blue-900 bg-gray-200">
+<nav class="h-20 bg-white dark:bg-blue-800 pt-6">
+    <div class="container mx-auto flex items-center justify-end shadow-4xl">
+        <img src="https://www.flaticon.com/svg/static/icons/svg/2917/2917242.svg" class="h-6 mr-3" alt="">
+        <div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+            <input checked type="checkbox" name="theme-switcher" id="theme-switcher" class="theme-switcher-input absolute block w-6 h-6 rounded-full bg-blue-200  border-4  border-gray-500 appearance-none cursor-pointer"/>
+            <label for="theme-switcher" class="theme-switcher-label block overflow-hidden h-6 rounded-full bg-gray-500 cursor-pointer"></label>
+        </div>
+        <img src="https://www.flaticon.com/svg/static/icons/svg/1680/1680154.svg" class="h-5 ml-3" alt="">
     </div>
 </nav>
     <div class="container mx-auto">
-        <div class="search-container flex justify-start items-center mt-8">
+        <div class="search-container flex justify-between items-center mt-8">
             <div class="w-1/2">
                 <label for="countrySearch"></label>
-                <input class="px-8 py-4 rounded-full w-1/2" type="search" id="countrySearch" placeholder="Search for countries..">
-                <p class="mx-8 text-blue-300 text-xl font-semibold inline-block"><span data-action="count-results"></span> résultats</p>
-
+                <input class="px-8 py-4 rounded-md w-1/2" type="search" id="countrySearch" placeholder="Search for countries..">
+                <p class="mx-8 text-gray-500 dark:text-blue-300 text-xl font-semibold inline-block"><span data-action="count-results"></span> results</p>
             </div>
             <div>
                 <label for="region-search"></label>
 
-                <select name="region-search" id="region-search" class="p-4 rounded-full bg-blue-800 text-white">
+                <select name="region-search" id="region-search" class="p-4 rounded-xl font-semibold text-gray-700 dark:bg-blue-800 dark:text-white">
                     <option selected value="">Search a region</option>
                     <option value="africa">Africa</option>
                     <option value="americas">Americas</option>
@@ -42,7 +57,7 @@
         <div class="country-card-container flex justify-between flex-wrap"></div>
 
         <div class="country-info-container hidden w-full">
-            <p class="my-4 text-white font-bold cursor-pointer" data-action="back"><- Back</p>
+            <p class="py-2 mt-6 mb-6 px-8 border-2 font-light border-gray-400 text-gray-500 font-bold cursor-pointer dark:border-blue-700 dark:text-blue-600 shadow-4xl" style="width: 140px" data-action="back"><-   Back</p>
             <div class="country-info w-full">
 
             </div>
