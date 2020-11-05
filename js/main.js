@@ -55,15 +55,17 @@ function getInfo(data) {
 }
 
 function createCountryCard(content) {
-    if (!content.region) {
+   /* if (!content.region) {
         content.region = "undefined"
-    }
+    } */
+
+    const population = content.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
 
     let div = "            <div class='country bg-white dark:bg-blue-800 shadow-xl mt-8 cursor-pointer rounded-md' style='width: 300px' data-region=" + content.region.toLowerCase() + " data-name=" + content.name + "\">" +
         "                <img class='w-full rounded-t-md' src='" + content.flag + "' alt=''>" +
         "                <div class='p-6 dark:text-blue-100'>" +
         "                    <h2 class='text-center font-bold text-xl mb-4'>" + content.name + "</h2>" +
-        "                    <p>Population : " + content.population + "</p>" +
+        "                    <p>Population : " + population + "</p>" +
         "                    <p>Region : " + content.region + "</p>" +
         "                    <p>Capital : " + content.capital + "</p>" +
         "                </div>" +
@@ -76,6 +78,8 @@ function createCountryCard(content) {
 function createCountryInfo(country, countries) {
     let countryLanguage = ""
     country.altSpellings.forEach(language => countryLanguage = countryLanguage + ", " + language)
+
+    let population = country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 
     let countryBorders = ""
     for (let i = 0; i < country.borders.length; i++) {
@@ -92,14 +96,14 @@ function createCountryInfo(country, countries) {
         "                <div class=' pl-8 text-blue-900 dark:text-blue-200 w-1/2'>\n" +
         "                    <h1 class='text-2xl font-semibold mb-8'>" + country.name + "</h1>\n" +
         "                    <div class='flex justify-between leading-8'>\n" +
-        "                    <div class='mr-12'>\n" +
+        "                    <div class='w-1/2'>\n" +
         "                        <p><span class='font-bold'>Native name :</span> " + country.name + "</p>\n" +
-        "                        <p><span class='font-bold'>Population :</span> " + country.population + "</p>\n" +
+        "                        <p><span class='font-bold'>Population :</span> " + population + "</p>\n" +
         "                        <p><span class='font-bold'>Region :</span> " + country.region + "</p>\n" +
         "                        <p><span class='font-bold'>Sub Region :</span> " + country.subregion + "</p>\n" +
         "                        <p><span class='font-bold'>Capital :</span> " + country.capital + "</p>\n" +
         "                    </div>\n" +
-        "                    <div>\n" +
+        "                    <div class='w-1/2'>\n" +
         "                        <p><span class='font-bold'>Top Level Domain :</span> " + country.name + "</p>\n" +
         "                        <p><span class='font-bold'>Currencies :</span> " + country.name + "</p>\n" +
         "                        <p><span class='font-bold'>Languages :</span> " + countryLanguage + "</p>\n" +
