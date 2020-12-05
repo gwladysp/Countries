@@ -46,7 +46,6 @@ function getInfo(data) {
                     break;
                 }
             }
-
             countryCardContainer.classList.add('hidden')
             searchContainer.classList.add('hidden')
             countryInfoContainer.classList.remove('hidden')
@@ -55,28 +54,24 @@ function getInfo(data) {
 }
 
 function createCountryCard(content) {
-   /* if (!content.region) {
-        content.region = "undefined"
-    } */
-
     const population = content.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
 
     let div = `<div class='country bg-white dark:bg-blue-800 shadow-xl mt-8 cursor-pointer rounded-md' style='width: 300px' data-region="${content.region.toLowerCase()}" data-name="${content.name}">
         <img class='w-full rounded-t-md' src='${content.flag}' alt=''>    
         <div class='p-6 dark:text-blue-100'>
             <h2 class='text-center font-bold text-xl mb-4'>${content.name}</h2>
-            <p>Population : ${content.population}</p>
-            <p>Region :  ${content.region}</p>
-            <p>Capital : ${content.capital}</p>
+            <p>Population : ${population || ' undefined'}</p>
+            <p>Region :  ${content.region || ' undefined'}</p>
+            <p>Capital : ${content.capital || ' undefined'}</p>
         </div>
-    </div>
-`
+    </div>`
     countryCardContainer.insertAdjacentHTML('beforeend', div)
 }
 
 function createCountryInfo(country, countries) {
     let countryLanguage = ""
     country.altSpellings.forEach(language => countryLanguage = countryLanguage + ", " + language)
+    countryLanguage = countryLanguage.substring(1)
 
     let population = country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 
@@ -84,7 +79,7 @@ function createCountryInfo(country, countries) {
     for (let i = 0; i < country.borders.length; i++) {
         for (let j = 0; j < countries.length; j++) {
             if (countries[j].alpha3Code === country.borders[i]) {
-                countryBorders = countryBorders + "<span class='bg-gray-300 dark:bg-blue-700 py-2 px-6 mx-3  cursor-pointer text-gray-800 dark:text-white' data-countryBorders=" + countries[j].name + ">" + countries[j].name + "</span>"
+                countryBorders += "<span class='bg-gray-300 dark:bg-blue-700 py-2 px-6 mx-3  cursor-pointer text-gray-800 dark:text-white' data-countryBorders=" + countries[j].name + ">" + countries[j].name + "</span>"
                 break;
             }
         }
@@ -95,28 +90,27 @@ function createCountryInfo(country, countries) {
             <h1 class='text-2xl font-semibold mb-8'>${country.name}</h1>
             <div class='flex justify-between leading-8'>
                 <div class='w-1/2'>
-                    <p><span class='font-bold'>Native name :</span>${country.name}</p>
-                    <p><span class='font-bold'>Population :</span>${population}</p>
-                    <p><span class='font-bold'>Region :</span>${country.region}</p>
-                    <p><span class='font-bold'>Sub Region :</span>${country.subregion}</p>
-                    <p><span class='font-bold'>Capital :</span>${country.capital}</p>
+                    <p><span class='font-bold'>Native name : </span>${country.name}</p>
+                    <p><span class='font-bold'>Population : </span>${population || ' undefined'}</p>
+                    <p><span class='font-bold'>Region : </span>${country.region || ' undefined'}</p>
+                    <p><span class='font-bold'>Sub Region : </span>${country.subregion || ' undefined'}</p>
+                    <p><span class='font-bold'>Capital : </span>${country.capital || ' undefined'}</p>
                 </div>
                 <div class='w-1/2'>
-                    <p><span class='font-bold'>Top Level Domain :</span>${country.name}</p>
-                    <p><span class='font-bold'>Currencies :</span>${country.name}</p>
-                    <p><span class='font-bold'>Languages :</span>${countryLanguage}</p>
+                    <p><span class='font-bold'>Top Level Domain : </span>${country.name || ' undefined'}</p>
+                    <p><span class='font-bold'>Currencies : </span>${country.name || ' undefined'}</p>
+                    <p><span class='font-bold'>Languages : </span>${countryLanguage || ' undefined'}</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class='mt-12 text-blue-900 dark:text-blue-200'><span class='font-bold'>Border countries :</span>${countryBorders}</div>`
+    <div class='mt-12 text-blue-900 dark:text-blue-200'><span class='font-bold'>Border countries :</span>${countryBorders || ' none'}</div>`
 
-        document.querySelector(".country-info").insertAdjacentHTML('beforeend', div)
+    document.querySelector(".country-info").insertAdjacentHTML('beforeend', div)
 
     document.querySelectorAll("[data-countryBorders]").forEach(borders => borders.addEventListener('click', function() {
             for (let j = 0; j < countries.length; j++) {
                 if (borders.innerText.toLowerCase() === countries[j].name.toLowerCase()) {
-                    console.log(document.querySelector(".country-info"))
                     document.querySelector(".country-info").innerHTML = ""
                     createCountryInfo(countries[j], countries)
                 }

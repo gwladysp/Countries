@@ -30,14 +30,3 @@ function getCountry(countries) {
     showResults.innerText = document.querySelectorAll(".country:not(.hidden)").length
 
 }
-
-/* function getCountry(countries) {
-    {
-        if (!countries.dataset.name.toLowerCase().includes(countrySearch.value.toLowerCase())) {
-            countries.classList.add("hidden")
-        } else {
-            countries.classList.remove("hidden")
-        }
-        showResults.innerText = document.querySelectorAll(".country:not(.hidden)").length
-    }
-} */
