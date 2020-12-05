@@ -61,18 +61,17 @@ function createCountryCard(content) {
 
     const population = content.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
 
-    let div = "            <div class='country bg-white dark:bg-blue-800 shadow-xl mt-8 cursor-pointer rounded-md' style='width: 300px' data-region=" + content.region.toLowerCase() + " data-name=" + content.name + "\">" +
-        "                <img class='w-full rounded-t-md' src='" + content.flag + "' alt=''>" +
-        "                <div class='p-6 dark:text-blue-100'>" +
-        "                    <h2 class='text-center font-bold text-xl mb-4'>" + content.name + "</h2>" +
-        "                    <p>Population : " + population + "</p>" +
-        "                    <p>Region : " + content.region + "</p>" +
-        "                    <p>Capital : " + content.capital + "</p>" +
-        "                </div>" +
-        "            </div>"
-
+    let div = `<div class='country bg-white dark:bg-blue-800 shadow-xl mt-8 cursor-pointer rounded-md' style='width: 300px' data-region="${content.region.toLowerCase()}" data-name="${content.name}">
+        <img class='w-full rounded-t-md' src='${content.flag}' alt=''>    
+        <div class='p-6 dark:text-blue-100'>
+            <h2 class='text-center font-bold text-xl mb-4'>${content.name}</h2>
+            <p>Population : ${content.population}</p>
+            <p>Region :  ${content.region}</p>
+            <p>Capital : ${content.capital}</p>
+        </div>
+    </div>
+`
     countryCardContainer.insertAdjacentHTML('beforeend', div)
-
 }
 
 function createCountryInfo(country, countries) {
@@ -90,28 +89,27 @@ function createCountryInfo(country, countries) {
             }
         }
     }
-
-    let div = "<div class='flex items-center mx-auto'>" +
-        "<img class='w-2/5' src='" + country.flag + "' alt=\"\">\n" +
-        "                <div class=' pl-8 text-blue-900 dark:text-blue-200 w-1/2'>\n" +
-        "                    <h1 class='text-2xl font-semibold mb-8'>" + country.name + "</h1>\n" +
-        "                    <div class='flex justify-between leading-8'>\n" +
-        "                    <div class='w-1/2'>\n" +
-        "                        <p><span class='font-bold'>Native name :</span> " + country.name + "</p>\n" +
-        "                        <p><span class='font-bold'>Population :</span> " + population + "</p>\n" +
-        "                        <p><span class='font-bold'>Region :</span> " + country.region + "</p>\n" +
-        "                        <p><span class='font-bold'>Sub Region :</span> " + country.subregion + "</p>\n" +
-        "                        <p><span class='font-bold'>Capital :</span> " + country.capital + "</p>\n" +
-        "                    </div>\n" +
-        "                    <div class='w-1/2'>\n" +
-        "                        <p><span class='font-bold'>Top Level Domain :</span> " + country.name + "</p>\n" +
-        "                        <p><span class='font-bold'>Currencies :</span> " + country.name + "</p>\n" +
-        "                        <p><span class='font-bold'>Languages :</span> " + countryLanguage + "</p>\n" +
-        "                    </div>\n" +
-        "                    </div>\n" +
-        "                </div>" +
-        " </div>" +
-        "                    <div class='mt-12 text-blue-900 dark:text-blue-200'><span class='font-bold'>Border countries :</span> " + countryBorders + "</div>\n"
+    let div = `<div class='flex items-center mx-auto'> 
+        <img class='w-2/5' src="${country.flag}" alt="">
+        <div class=' pl-8 text-blue-900 dark:text-blue-200 w-1/2'>
+            <h1 class='text-2xl font-semibold mb-8'>${country.name}</h1>
+            <div class='flex justify-between leading-8'>
+                <div class='w-1/2'>
+                    <p><span class='font-bold'>Native name :</span>${country.name}</p>
+                    <p><span class='font-bold'>Population :</span>${population}</p>
+                    <p><span class='font-bold'>Region :</span>${country.region}</p>
+                    <p><span class='font-bold'>Sub Region :</span>${country.subregion}</p>
+                    <p><span class='font-bold'>Capital :</span>${country.capital}</p>
+                </div>
+                <div class='w-1/2'>
+                    <p><span class='font-bold'>Top Level Domain :</span>${country.name}</p>
+                    <p><span class='font-bold'>Currencies :</span>${country.name}</p>
+                    <p><span class='font-bold'>Languages :</span>${countryLanguage}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='mt-12 text-blue-900 dark:text-blue-200'><span class='font-bold'>Border countries :</span>${countryBorders}</div>`
 
         document.querySelector(".country-info").insertAdjacentHTML('beforeend', div)
 
