@@ -79,7 +79,7 @@ function createCountryInfo(country, countries) {
     for (let i = 0; i < country.borders.length; i++) {
         for (let j = 0; j < countries.length; j++) {
             if (countries[j].alpha3Code === country.borders[i]) {
-                countryBorders += "<span class='bg-gray-300 dark:bg-blue-700 py-2 px-6 mx-3  cursor-pointer text-gray-800 dark:text-white' data-countryBorders=" + countries[j].name + ">" + countries[j].name + "</span>"
+                countryBorders += "<span class='bg-gray-300 dark:bg-blue-700 py-2 px-6 mr-4 cursor-pointer text-gray-800 dark:text-white inline-block mb-2' data-countryBorders=" + countries[j].name + ">" + countries[j].name + "</span>"
                 break;
             }
         }
@@ -104,7 +104,7 @@ function createCountryInfo(country, countries) {
             </div>
         </div>
     </div>
-    <div class='mt-12 text-blue-900 dark:text-blue-200'><span class='font-bold'>Border countries :</span>${countryBorders || ' none'}</div>`
+    <div class='mt-12 text-blue-900 dark:text-blue-200'><span class='font-bold mr-4'>Border countries :</span>${countryBorders || ' none'}</div>`
 
     document.querySelector(".country-info").insertAdjacentHTML('beforeend', div)
 
