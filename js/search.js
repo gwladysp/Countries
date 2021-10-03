@@ -14,11 +14,15 @@ selectRegion.addEventListener('change', function(e) {
 countrySearch.addEventListener('keyup', showCountries)
 countrySearch.addEventListener('search', showCountries)
 
+
 function showCountries() {
     const countries = document.querySelectorAll("[data-name]")
     countries.forEach(getCountry, [countrySearch.value.toLowerCase(), "name"])
 }
 
+/**
+ * Displays countries found once the search parameters are applied
+ */
 function getCountry(countries) {
     let search = (this[1] === "region" ? countries.dataset.region.toLowerCase() : countries.dataset.name.toLowerCase())
     if (!search.includes(this[0].valueOf())) {

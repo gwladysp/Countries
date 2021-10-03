@@ -6,7 +6,9 @@ const back = document.querySelector("[data-action='back']")
 
 showAll().then(countResults)
 
-
+/**
+ * Displays (removes hidden css property) all country cards when "back" button is clicked
+ */
 back.addEventListener('click', function() {
     countryCardContainer.classList.remove('hidden')
     searchContainer.classList.remove('hidden')
@@ -14,6 +16,10 @@ back.addEventListener('click', function() {
     document.querySelector(".country-info").innerHTML = ""
 })
 
+/**
+ * Get countries list from Rest Countries API
+ * @returns {Promise<any>}
+ */
 function countries() {
     return fetch(url).then(res => res.json())
         .then(function(content) {
@@ -21,7 +27,10 @@ function countries() {
         })
 }
 
-
+/**
+ * Creates a card for each country
+ * @returns {Promise<void>}
+ */
 async function showAll() {
     let data = await countries().then((content) => {
         return content
@@ -34,6 +43,11 @@ async function showAll() {
 }
 
 
+/**
+ * Get every necessary informations from each country and creates the country info page
+ * which will be displayed when an user clicks on a country card
+ * @param data
+ */
 function getInfo(data) {
     const countries = document.querySelectorAll('.country')
 
@@ -53,6 +67,10 @@ function getInfo(data) {
     }
 }
 
+/**
+ * Create a country card
+ * @param content
+ */
 function createCountryCard(content) {
     const population = content.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     let div = `<div class='country bg-white dark:bg-blue-800 shadow-xl mt-8 cursor-pointer rounded-md hover:scale-110' style='width: 300px' data-region="${content.region.toLowerCase()}" data-name="${content.name.common}">
@@ -67,9 +85,13 @@ function createCountryCard(content) {
     countryCardContainer.insertAdjacentHTML('beforeend', div)
 }
 
+/**
+ * Creates a country page
+ * @param country
+ * @param countries
+ */
 function createCountryInfo(country, countries) {
     let countryLanguage = ""
-    console.log(country)
     country.altSpellings.forEach(language => countryLanguage = countryLanguage + ", " + language)
     countryLanguage = countryLanguage.substring(1)
 
@@ -137,6 +159,10 @@ function createCountryInfo(country, countries) {
 
 }
 
+/**
+ * Counts how many countries are displayed
+ * @returns {Promise<void>}
+ */
 async function countResults() {
     let shownCountries = await countries().then((content) => {
             return content
