@@ -21,7 +21,6 @@ function showCountries() {
 
 function getCountry(countries) {
     let search = (this[1] === "region" ? countries.dataset.region.toLowerCase() : countries.dataset.name.toLowerCase())
-
     if (!search.includes(this[0].valueOf())) {
         countries.classList.add("hidden")
     } else {
